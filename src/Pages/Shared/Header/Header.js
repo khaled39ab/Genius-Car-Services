@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomLink from '../Others/CustomLink/CustomLink';
+import CustomLink from '../../Others/CustomLink/CustomLink';
 import './Header.css'
 
 const Header = () => {
