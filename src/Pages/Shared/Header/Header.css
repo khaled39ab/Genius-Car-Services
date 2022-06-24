@@ -1,11 +1,15 @@
 .header{
     height: 80px;
-    background-color: #1C2B35;
+    background-color: #6f90a6;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 140px;
     padding-right: 140px;
+}
+
+.header img{
+    height: 40px;
 }
 
 .header a{
