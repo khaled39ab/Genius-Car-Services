@@ -7,7 +7,7 @@ const Expert = ({ expert }) => {
     return (
         <div className='col-sm-12 col-md-6 col-lg-4 my-3 ps-5'>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img} />
+                <Card.Img className='w-100' variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
