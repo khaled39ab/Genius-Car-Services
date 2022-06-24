@@ -5,7 +5,7 @@ const Footer = () => {
     const year = d.getFullYear()
     return (
         <div style={{ textAlign: 'center' }}>
-            <p><small>Copyright @ {year}</small></p>
+            <p><small>Copyright @{year}</small></p>
         </div>
     );
 };
