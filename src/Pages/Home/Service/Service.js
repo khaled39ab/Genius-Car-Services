@@ -5,7 +5,7 @@ const Service = ({ service }) => {
     const { name, img, about, price } = service;
     
     return (
-        <div className='service-container'>
+        <div className='service-container text-center'>
             <img src={img} alt="" />
             <div className='service-info'>
                 <h2>{name}</h2>
