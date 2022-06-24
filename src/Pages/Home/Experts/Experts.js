@@ -19,7 +19,7 @@ const Experts = () => {
     ];
 
     return (
-        <div>
+        <div className='container'>
             <h1 className='text-primary text-center mt-5'>Our Experts</h1>
             <div className='row'>
                 {
