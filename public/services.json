@@ -2,42 +2,42 @@
     {
       "id": "62b54831efdc5fd17ba92a70",
       "price": "$312",
-      "picture": "https://i.ibb.co/z2Ly5Lw/1.jpg",
+      "img": "https://i.ibb.co/z2Ly5Lw/1.jpg",
       "name": "ENGINE DIAGNOSTIC",
       "about": "Dolor eiusmod consequat minim excepteur cillum sit reprehenderit aliquip enim. Ea Lorem deserunt consequat aute aliquip deserunt velit eiusmod culpa."
     },
     {
       "id": "62b54831b5890facdbb1d6e8",
       "price": "$152",
-      "picture": "https://i.ibb.co/nRNRFGc/2.jpg",
+      "img": "https://i.ibb.co/nRNRFGc/2.jpg",
       "name": "WHEEL ALIGNMENT",
       "about": "Officia labore consectetur veniam fugiat. Velit consequat deserunt qui proident. Minim eiusmod duis et est commodo adipisicing ea. Mollit tempor sunt dolore enim labore esse excepteur."
     },
     {
       "id": "62b54831b9b0512e8cb5b424",
       "price": "$161",
-      "picture": "https://i.ibb.co/v4zSHWM/3.jpg",
+      "img": "https://i.ibb.co/v4zSHWM/3.jpg",
       "name": "OIL CHANGING",
       "about": "Veniam culpa cillum ea non consectetur nulla nostrud mollit ea consectetur officia dolore adipisicing. Ut qui anim deserunt elit dolor non qui enim ipsum voluptate amet officia reprehenderit. Lorem anim occaecat eu qui duis est.\r\n"
     },
     {
       "id": "62b5483199ae57976d1a3e14",
       "price": "$351",
-      "picture": " https://i.ibb.co/s9GprqP/6.jpg",
+      "img": " https://i.ibb.co/s9GprqP/6.jpg",
       "name": "COMPLETE ANALYSIS",
       "about": "Duis consectetur aute et id laboris quis cillum. Sint commodo non esse veniam nisi. Cupidatat veniam duis id sint reprehenderit dolore quis irure occaecat ullamco duis.\r\n"
     },
     {
       "id": "62b54831eb0b826cba6f4f5b",
       "price": "$120",
-      "picture": "https://i.ibb.co/dWZTSc7/5.jpg",
+      "img": "https://i.ibb.co/dWZTSc7/5.jpg",
       "name": "WASH AND GLASSING",
       "about": "Est est cillum culpa consequat consequat. Culpa cillum veniam ex proident commodo minim non adipisicing adipisicing ea laborum dolore. Pariatur cillum proident ea proident sunt anim. Fugiat reprehenderit anim mollit mollit ad magna.\r\n"
     },
     {
       "id": "62b548316e7f04e96ac1a23a",
       "price": "$237",
-      "picture": "https://i.ibb.co/JxK2rp7/4.jpg",
+      "img": "https://i.ibb.co/JxK2rp7/4.jpg",
       "name": "BRAKE REPARING",
       "about": "Id consequat et deserunt aute commodo excepteur irure nulla proident deserunt. Id sunt ad tempor exercitation et elit fugiat. Officia occaecat do tempor laborum ut ut occaecat consequat dolor.\r\n"
     }
