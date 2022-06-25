@@ -1,26 +1,8 @@
-.header{
-    height: 80px;
-    background-color: #6f90a6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 140px;
-    padding-right: 140px;
-}
-
-.header img{
+.brand-icon img{
     height: 40px;
 }
 
-.header a{
-    margin-right: 32px;
-}
-
-.custom-link{
-    display: flex;
-}
-
-.custom-link h6{
-    color: white;
-    cursor: pointer;
+.link-name{
+    font-size: 20px;
+    font-weight: 500;
 }
