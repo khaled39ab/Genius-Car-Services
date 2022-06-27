@@ -6,7 +6,7 @@ import './Login.css'
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const navigate = useNavigate()
+    // const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -24,15 +24,12 @@ const Login = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
