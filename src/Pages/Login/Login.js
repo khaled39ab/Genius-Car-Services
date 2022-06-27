@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
@@ -15,9 +15,9 @@ const Login = () => {
         console.log(email, password);
     }
 
-    const navigateToRegister = () =>{
+    /* const navigateToRegister = () =>{
         navigate('/register')
-    }
+    } */
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
             <h2 className='text-center'>Please Login</h2>
@@ -25,9 +25,6 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -40,7 +37,7 @@ const Login = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                <p className='mt-3'>New to Genius Car? <span className='text-danger register-link' onClick={navigateToRegister}>Please Register</span></p>
+                <p className='mt-3'>New to Genius Car? <Link to={'/register'} className='text-danger pe-auto text-decoration-none register-link'>Please Register</Link></p>
             </Form>
         </div>
     );
