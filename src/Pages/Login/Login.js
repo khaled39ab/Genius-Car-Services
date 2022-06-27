@@ -3,8 +3,8 @@ import { Button, Form } from 'react-bootstrap';
 
 const Login = () => {
     return (
-        <div>
-            <h2>Please Login</h2>
+        <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
+            <h2 className='text-center'>Please Login</h2>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
