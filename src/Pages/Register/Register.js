@@ -2,6 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -46,11 +47,12 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Agree with terms & condition" required/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='w-50 d-block mx-auto' variant="primary" type="submit">
                     Register
                 </Button>
                 <p className='mt-3'>Have an Account? <Link to={'/login'} className='text-danger pe-auto text-decoration-none'>Please Login</Link></p>
             </Form>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
