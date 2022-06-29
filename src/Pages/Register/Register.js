@@ -18,12 +18,10 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-    if(user){
-        console.log(user);
-    }
 
     const handleRegister = async e => {
         e.preventDefault();
+        // const displayName = e.target.name.value;
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
