@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate()
@@ -29,15 +30,18 @@ const SocialLogin = () => {
     ] = useSignInWithFacebook(auth);
 
     let errorEl;
+
+    if (loading || loading1 || loading2) {
+        return <Loading></Loading>
+    };
+
     if (error || error1 || error2) {
         errorEl = <p className='text-danger'>Error: {error?.message} {error1?.message} {error2?.message}</p>
-    }
+    };
 
-    useNavigate( ()=>{
-        if (user || user1 || user2) {
-            navigate('/')
-        }
-    },[user,user1,user2,navigate])
+    if (user || user1 || user2) {
+        navigate('/')
+    }
 
     return (
         <div>

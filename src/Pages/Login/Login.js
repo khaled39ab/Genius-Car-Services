@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import './Login.css'
 
@@ -37,6 +38,10 @@ const Login = () => {
             navigate(from, { replace: true });
         }
     },[user, from, navigate])
+
+    if (loading){
+        return <Loading></Loading>
+    }
 
     if (error) {
         errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>

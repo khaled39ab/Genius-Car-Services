@@ -1,9 +1,8 @@
-import { sendEmailVerification } from 'firebase/auth';
-import { useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
@@ -32,11 +31,9 @@ const Register = () => {
         navigate('/')
     }
 
-    // useEffect( ()=>{
-    //     if (user) {
-            
-    //     }
-    // },[user, navigate])
+    if (loading){
+        return <Loading></Loading>
+    }
 
     if (error) {
         errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
