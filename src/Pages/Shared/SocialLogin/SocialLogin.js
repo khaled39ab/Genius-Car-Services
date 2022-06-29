@@ -33,9 +33,11 @@ const SocialLogin = () => {
         errorEl = <p className='text-danger'>Error: {error?.message} {error1?.message} {error2?.message}</p>
     }
 
-    if (user || user1 || user2) {
-        navigate('/')
-    }
+    useNavigate( ()=>{
+        if (user || user1 || user2) {
+            navigate('/')
+        }
+    },[user,user1,user2,navigate])
 
     return (
         <div>
