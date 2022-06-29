@@ -30,9 +30,7 @@ const SocialLogin = () => {
 
     let errorEl;
     if (error || error1 || error2) {
-        errorEl = <div>
-            <p className='text-danger'>Error: {error?.message}</p>
-        </div>
+        errorEl = <p className='text-danger'>Error: {error?.message} {error1?.message} {error2?.message}</p>
     }
 
     if (user || user1 || user2) {
