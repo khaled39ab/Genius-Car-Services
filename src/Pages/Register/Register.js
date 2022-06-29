@@ -1,6 +1,7 @@
+import { sendEmailVerification } from 'firebase/auth';
 import { useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -14,22 +15,30 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
 
-    const handleRegister = e => {
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    if(user){
+        console.log(user);
+    }
+
+    const handleRegister = async e => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password)
+        // await updateProfile({ displayName });
+        await updateProfile({ displayName: name });
+        navigate('/')
     }
 
-    useEffect( ()=>{
-        if (user) {
-            navigate('/')
-        }
-    },[user, navigate])
+    // useEffect( ()=>{
+    //     if (user) {
+            
+    //     }
+    // },[user, navigate])
 
     if (error) {
         errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
