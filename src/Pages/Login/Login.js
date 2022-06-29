@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -22,7 +22,8 @@ const Login = () => {
         error
     ] = useSignInWithEmailAndPassword(auth);
 
-    
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
     const handleSubmit = e => {
         e.preventDefault();
         const email = emailRef.current.value;
@@ -41,6 +42,11 @@ const Login = () => {
         errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
     }
     
+    const handleResetPassword = async () =>{
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
             <h2 className='text-center'>Please Login</h2>
@@ -57,7 +63,9 @@ const Login = () => {
                 <Button className='w-50 d-block mx-auto' variant="primary" type="submit">
                     Login
                 </Button>
-                <p className='mt-3'>New to Genius Car? <Link to={'/register'} className='text-danger pe-auto text-decoration-none register-link'>Please Register</Link></p>
+                <p className='mt-3'>New to Genius Car? <Link to={'/register'} className='text-primary pe-auto text-decoration-none register-link'>Please Register</Link></p>
+
+                <p className='mt-3'>Forget Password? <span onClick={handleResetPassword} className='text-primary pe-auto text-decoration-none register-link'>Reset Password</span></p>
             </Form>
             {
                 errorElement
