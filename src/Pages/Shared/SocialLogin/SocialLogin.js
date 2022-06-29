@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -21,14 +21,21 @@ const SocialLogin = () => {
         error1
     ] = useSignInWithGithub(auth);
 
+    const [
+        signInWithFacebook,
+        user2,
+        loading2,
+        error2
+    ] = useSignInWithFacebook(auth);
+
     let errorEl;
-    if (error || error1) {
+    if (error || error1 || error2) {
         errorEl = <div>
             <p className='text-danger'>Error: {error?.message}</p>
         </div>
     }
 
-    if (user || user1) {
+    if (user || user1 || user2) {
         navigate('/')
     }
 
@@ -49,13 +56,13 @@ const SocialLogin = () => {
                     </span>
                     Sign In With Google
                 </button>
-                <button className='btn btn-primary mx-auto w-50 d-block mb-2'>
+                <button onClick={() => signInWithFacebook()} className='btn btn-primary mx-auto w-50 d-block mb-2'>
                     <span className='pe-2'>
                         <FontAwesomeIcon icon={faFacebook} />
                     </span>
                     Sign In With Facebook
                 </button>
-                <button onClick={() =>signInWithGithub()} className='btn btn-dark mx-auto w-50 d-block'>
+                <button onClick={() => signInWithGithub()} className='btn btn-dark mx-auto w-50 d-block'>
                     <span className='pe-2'>
                         <FontAwesomeIcon icon={faGithub} />
                     </span>
