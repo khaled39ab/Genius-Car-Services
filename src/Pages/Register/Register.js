@@ -5,6 +5,8 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = () => {
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const Register = () => {
         navigate('/')
     }
 
-    if (loading){
+    if (loading || updating){
         return <Loading></Loading>
     }
 

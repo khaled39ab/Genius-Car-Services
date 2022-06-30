@@ -10,36 +10,36 @@ const SocialLogin = () => {
     const navigate = useNavigate()
     const [
         signInWithGoogle,
-        user,
-        loading,
-        error
+        googleUser,
+        googleLoading,
+        googleError
     ] = useSignInWithGoogle(auth);
 
     const [
         signInWithGithub,
-        user1,
-        loading1,
-        error1
+        githubUser,
+        githubLoading,
+        githubError
     ] = useSignInWithGithub(auth);
 
     const [
         signInWithFacebook,
-        user2,
-        loading2,
-        error2
+        facebookUser,
+        facebookLoading,
+        facebookError
     ] = useSignInWithFacebook(auth);
 
     let errorEl;
 
-    if (loading || loading1 || loading2) {
+    if (googleLoading || githubLoading || facebookLoading) {
         return <Loading></Loading>
     };
 
-    if (error || error1 || error2) {
-        errorEl = <p className='text-danger'>Error: {error?.message} {error1?.message} {error2?.message}</p>
+    if (googleError || githubError || facebookError) {
+        errorEl = <p className='text-danger'>Error: {googleError?.message} {githubError?.message} {facebookError?.message}</p>
     };
 
-    if (user || user1 || user2) {
+    if (googleUser || githubUser || facebookUser) {
         navigate('/')
     }
 

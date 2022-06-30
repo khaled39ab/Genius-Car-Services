@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 
 const Login = () => {
@@ -28,7 +30,7 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const email = emailRef.current.value;
-        const password = passwordRef.current.value
+        const password = passwordRef.current.value;
 
         signInWithEmailAndPassword(email, password)
     }
@@ -39,7 +41,7 @@ const Login = () => {
         }
     },[user, from, navigate])
 
-    if (loading){
+    if (loading || sending){
         return <Loading></Loading>
     }
 
@@ -50,7 +52,7 @@ const Login = () => {
     const handleResetPassword = async () =>{
         const email = emailRef.current.value;
         await sendPasswordResetEmail(email);
-        alert('Sent email');
+        // toast('Sent email');
     }
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
@@ -76,6 +78,7 @@ const Login = () => {
                 errorElement
             }
             <SocialLogin></SocialLogin>
+            {/* <ToastContainer /> */}
         </div>
     );
 };
