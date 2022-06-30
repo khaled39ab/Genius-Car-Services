@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 // import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 
@@ -16,7 +17,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-    
+
     let errorElement;
     const [
         signInWithEmailAndPassword,
@@ -35,24 +36,28 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    useEffect( ()=>{
+    useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
         }
-    },[user, from, navigate])
+    }, [user, from, navigate])
 
-    if (loading || sending){
+    if (loading) {
         return <Loading></Loading>
     }
 
     if (error) {
         errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
     }
-    
-    const handleResetPassword = async () =>{
+
+    const handleResetPassword = async () => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        // toast('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        } else {
+            toast('Enter Your Email')
+        }
     }
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
@@ -78,7 +83,7 @@ const Login = () => {
                 errorElement
             }
             <SocialLogin></SocialLogin>
-            {/* <ToastContainer /> */}
+            <ToastContainer />
         </div>
     );
 };
