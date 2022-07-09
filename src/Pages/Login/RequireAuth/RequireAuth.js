@@ -17,8 +17,10 @@ const RequireAuth = ({ children }) => {
     }
 
     if (!user.emailVerified) {
-        return <div>
-            <h3>Verified Your Email First</h3>
+        return <div className='text-center pt-5'>
+            <h3 className='text-danger'>Verified Your Email First</h3>
+            <h5 className='text-success'>Go to your email address and verify email</h5>
+            <p className='mt-3'>Did not get email? <button className='btn-link border-0 bg-white'>Sent verification email again</button></p>
         </div>
     }
 
