@@ -9,6 +9,7 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -61,6 +62,9 @@ const Login = () => {
     }
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
+            <Helmet>
+                <title>Login - Genius Car Service</title>
+            </Helmet>
             <h2 className='text-center'>Please Login</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

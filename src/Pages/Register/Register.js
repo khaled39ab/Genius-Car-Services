@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -33,7 +34,7 @@ const Register = () => {
         navigate('/')
     }
 
-    if (loading || updating){
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
@@ -43,6 +44,9 @@ const Register = () => {
 
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
+            <Helmet>
+                <title>Register - Genius Car Service</title>
+            </Helmet>
             <h2 className='text-center'>Please Register</h2>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicName">
