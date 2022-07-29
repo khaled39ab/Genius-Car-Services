@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [
         signInWithGoogle,
         googleUser,
