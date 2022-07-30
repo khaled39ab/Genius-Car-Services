@@ -10,6 +10,7 @@ const ServiceDetail = () => {
 
     useEffect(() => {
         const url = `http://localhost:5000/service/${serviceId}`;
+
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))
@@ -17,7 +18,7 @@ const ServiceDetail = () => {
     
     return (
         <div>
-            <h2>This is service detail {service.name}</h2>
+            <h2>You are going to booking about :: {service.name}</h2>
             <div className='text-center'>
                 <Link to={'/checkout'}>
                     <Button variant="primary">Proceed Checkout</Button>{' '}
