@@ -27,11 +27,14 @@ const Header = () => {
                         <Nav.Link href="#experts">Experts</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                         {
+                            user  && <>
+                            <Nav.Link as={Link} to="/add-service">Add Service</Nav.Link>
+                            <Nav.Link as={Link} to="/manage">Manage</Nav.Link>
+                            </>
+                        }
+                        {
                             user ?
-                                <div className='d-flex'>
-                                    <Nav.Link as={Link} to="/add-service">Add Service</Nav.Link>
-                                    <button className='btn btn-link text-white text-decoration-none fw-bold' onClick={handleSignOut}>Sign Out</button>
-                                </div> :
+                                <button className='btn btn-link text-white text-decoration-none fw-bold' onClick={handleSignOut}>Sign Out</button> :
                                 <Nav.Link as={Link} to="/logIn">Log in</Nav.Link>
                         }
                     </Nav>
