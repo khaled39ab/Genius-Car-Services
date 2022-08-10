@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [
         signInWithGoogle,
         googleUser,
@@ -40,7 +42,7 @@ const SocialLogin = () => {
     };
 
     if (googleUser || githubUser || facebookUser) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
 
     return (
