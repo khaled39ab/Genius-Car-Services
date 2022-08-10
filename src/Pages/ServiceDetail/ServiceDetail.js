@@ -11,7 +11,7 @@ const ServiceDetail = () => {
         <div>
             <h2>You are going to booking about :: {service.name}</h2>
             <div className='text-center'>
-                <Link to={`/checkout/:${serviceId}`}>
+                <Link to={`/checkout/${serviceId}`}>
                     <Button variant="primary">Proceed Checkout</Button>{' '}
                 </Link>
             </div>

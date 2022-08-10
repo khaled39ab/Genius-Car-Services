@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useServiceDetail from '../../../hooks/useServiceDetail';
 
 const CheckOut = () => {
     const { serviceId } = useParams();
-    const [service] = useServiceDetail(serviceId);
+    const [service, setService] = useServiceDetail(serviceId);
 
     return (
         <div>
