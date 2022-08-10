@@ -15,7 +15,7 @@ const AddService = () => {
         })
         .then( res => res.json())
         .then ( result =>{
-            console.log('success', result);
+            // console.log('success', result);
         })
     };
 
