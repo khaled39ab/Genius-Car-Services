@@ -35,11 +35,11 @@ const CheckOut = () => {
         <div>
             <h2>Please checkout {service.name}</h2>
             <form className='w-50 mx-auto' onSubmit={handleOrder}>
-                <input className='w-100 mb-2' type="text" value={user?.displayName} name='name' placeholder='Name' required readOnly disabled />
+                <input className='w-100 mb-2' type="text" value={user?.displayName} name='name' placeholder='Name' disabled />
                 <br />
-                <input className='w-100 mb-2' type="text" value={user?.email} name='email' placeholder='Email' required readOnly disabled />
+                <input className='w-100 mb-2' type="text" value={user?.email} name='email' placeholder='Email' disabled />
                 <br />
-                <input className='w-100 mb-2' type="text" value={service.name} name='service-name' placeholder='Service Name' required readOnly disabled />
+                <input className='w-100 mb-2' type="text" value={service.name} name='service-name' placeholder='Service Name' disabled />
                 <br />
                 <textarea className='w-100 mb-2' type="text" name='address' placeholder='Address' required />
                 <br />
