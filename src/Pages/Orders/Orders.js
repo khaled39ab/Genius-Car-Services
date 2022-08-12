@@ -36,8 +36,13 @@ const Orders = () => {
     }, [user, navigate])
 
     return (
-        <div>
-            <h2>You Order(s): {order.length}</h2>
+        <div className='w-50 mx-auto mb-5'>
+            <h2 className='text-info my-4'>You Order(s): {order.length}</h2>
+            {
+                order.map(or => <div
+                    key={or._id}
+                ><h5><li><span className='text-warning'>Id={or._id}</span> :: {or.service}  </li></h5></div>)
+            }
         </div>
     );
 };
