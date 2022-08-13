@@ -7,6 +7,7 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -20,6 +21,8 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user);
+
 
     const handleRegister = async e => {
         e.preventDefault();
@@ -31,7 +34,10 @@ const Register = () => {
         await createUserWithEmailAndPassword(email, password)
         // await updateProfile({ displayName });
         await updateProfile({ displayName: name });
-        navigate('/')
+    }
+
+    if (token) {
+        navigate('/');
     }
 
     if (loading || updating) {
