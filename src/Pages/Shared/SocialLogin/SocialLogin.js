@@ -54,9 +54,11 @@ const SocialLogin = () => {
                 <p className='mx-3 mt-2'>or</p>
                 <div style={{ height: '1px' }} className='bg-primary w-50' ></div>
             </div>
+
             {
                 errorEl
             }
+            
             <div className=''>
                 <button onClick={() => { signInWithGoogle() }} style={{ color: 'white' }} className='btn btn-info mx-auto w-50 d-block mb-2'>
                     <span className='pe-2'>

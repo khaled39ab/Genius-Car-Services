@@ -63,6 +63,7 @@ const Login = () => {
             toast('Enter Your Email')
         }
     }
+    
     return (
         <div className='w-50 mx-auto mt-3 border border-3 rounded p-3'>
             <Helmet>

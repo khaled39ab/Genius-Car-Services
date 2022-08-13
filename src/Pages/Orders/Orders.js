@@ -11,6 +11,7 @@ const Orders = () => {
     const [user] = useAuthState(auth);
     const [order, setOrder] = useState([]);
     const navigate = useNavigate();
+    
     useEffect(() => {
         const getOrder = async () => {
             const email = user.email;
