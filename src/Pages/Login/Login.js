@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 import { Helmet } from 'react-helmet-async';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -28,6 +29,19 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [token] = useToken(user);
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -36,22 +50,8 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, password);
 
-        const {data} = await axios.post('http://localhost:5000/login', {email})
-        localStorage.setItem('accessToken', data.accessToken);
-    }
-
-    useEffect(() => {
-        if (user) {
-            navigate(from, { replace: true });
-        }
-    }, [user, from, navigate])
-
-    if (loading) {
-        return <Loading></Loading>
-    }
-
-    if (error) {
-        errorElement = <p className='text-danger text-center'>Error: {error?.message}</p>
+        /* const {data} = await axios.post('http://localhost:5000/login', {email})
+        localStorage.setItem('accessToken', data.accessToken); */
     }
 
     const handleResetPassword = async () => {

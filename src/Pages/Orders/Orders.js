@@ -41,7 +41,7 @@ const Orders = () => {
             {
                 order.map(or => <div
                     key={or._id}
-                ><h5><li><span className='text-warning'>Id={or._id}</span> :: {or.service}  </li></h5></div>)
+                ><h5><li><span className='text-warning'>Token No. {or._id}</span> :: {or.service}  </li></h5></div>)
             }
         </div>
     );
