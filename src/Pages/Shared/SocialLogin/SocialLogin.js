@@ -5,6 +5,7 @@ import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const SocialLogin = () => {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const SocialLogin = () => {
         facebookLoading,
         facebookError
     ] = useSignInWithFacebook(auth);
+    const [token] = useToken(googleUser || githubUser || facebookUser)
 
     let errorEl;
 
@@ -41,7 +43,7 @@ const SocialLogin = () => {
         errorEl = <p className='text-danger'>Error: {googleError?.message} {githubError?.message} {facebookError?.message}</p>
     };
 
-    if (googleUser || githubUser || facebookUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
