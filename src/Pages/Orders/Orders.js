@@ -14,7 +14,7 @@ const Orders = () => {
     
     useEffect(() => {
         const getOrder = async () => {
-            const email = user.email;
+            const email = user?.email;
             const url = `https://secret-temple-74237.herokuapp.com/order?email=${email}`;
             try {
                 const { data } = await axios.get(url, {

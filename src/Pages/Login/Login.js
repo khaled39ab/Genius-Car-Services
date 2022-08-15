@@ -49,9 +49,6 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-
-        /* const {data} = await axios.post('https://secret-temple-74237.herokuapp.com/login', {email})
-        localStorage.setItem('accessToken', data.accessToken); */
     }
 
     const handleResetPassword = async () => {
